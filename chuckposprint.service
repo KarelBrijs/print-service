@@ -1,0 +1,12 @@
+[Unit] 
+Description=chuckposprint 
+After=network.target 
+
+[Service] 
+User=root 
+ExecStart=/usr/bin/websockify 5555 localhost:7000 
+Restart=always 
+Type=simple 
+
+[Install] 
+WantedBy=multi-user.target

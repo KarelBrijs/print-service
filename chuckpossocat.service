@@ -1,0 +1,13 @@
+[Unit] 
+Description=chuckpossocat 
+After=chuckposprint.service 
+
+[Service] 
+User=root 
+ExecStart=/usr/bin/socat -u TCP-LISTEN:7000,fork,reuseaddr,bind=127.0.0.1 OPEN:/dev/usb/lp0 
+Restart=always 
+RestartSec=2 
+Type=simple 
+
+[Install] 
+WantedBy=multi-user.target
